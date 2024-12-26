@@ -9,7 +9,6 @@ class ImageCaptcha{
 
         this.container = document.createElement('div');
 
-        this.container.style.background = '#999';
         this.container.style.position = 'relative';
         this.container.style.width = options.width;
         this.container.style.display = 'flex';
@@ -159,5 +158,43 @@ class CaptchaTile{
             }, 100);
         }, 100);
         */
+    };
+};
+
+class WatermarkDialog{
+    constructor(options){
+        const thisDialog = this;
+
+        this.event = options.event;
+
+        this.container = document.createElement('div');
+        this.container.style.background = $ui.colors.white;
+        this.container.style.position = 'absolute';
+        this.container.style.width = options.width;
+
+        this.container.style.border = 'solid calc(' + $ui.borderSize + ' * 4) ' + $ui.colors.blue;
+        this.container.style.borderRadius = $ui.borderRadius;
+        //this.container.style.top = '100px';
+
+        this.container.style.display = 'flex';
+        //this.container.style.overflow = 'hidden';
+        this.container.style.flexDirection = 'column';
+
+        this.container.style.paddingLeft = this.container.style.paddingRight = '2em';
+        this.container.style.paddingTop = this.container.style.paddingBottom = '1em';
+
+        this.container.innerHTML = 'Please add a watermark to view this image:';
+        this.button = new Button({
+            text : 'Add Watermark',
+            clickEvent : function(){
+                thisDialog.event();
+            },
+        });
+        this.container.appendChild(this.button.container);
+
+        this.button.container.style.width = '100%';
+        this.button.container.style.textAlign = 'center';
+        this.button.container.style.padding = '0';
+        this.button.container.style.marginTop = '1em';
     };
 };

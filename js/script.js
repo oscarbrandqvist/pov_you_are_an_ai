@@ -33,7 +33,8 @@ const $textScrollerHolder = document.createElement('div');
 $content.appendChild($textScrollerHolder);
 
 const $textScroller = new TextScroller({
-    text : 'Lorem ipsum dolor sit amet, consectetur [icon:./assets/icons/directory_explorer.png] adipiscing elit. Praesent porta purus ac ante dignissim, eu euismod lorem eleifend. Vivamus id venenatis diam. Suspendisse interdum tempus sapien, nec feugiat magna fermentum at. ',
+    text : "In an age dominated by digital landscapes, the boundary between art and technology grows increasingly blurred. Modern creators face unprecedented challenges, as artificial intelligence harvests vast amounts of data to mimic and reproduce artistic styles without consent. The very act of protecting one’s work has become an intricate maze of barriers—watermarks, Captchas, and tools designed to safeguard creativity from unauthorised replication. - ",
+    //text : 'Lorem ipsum dolor sit amet, consectetur [icon:./assets/icons/directory_explorer.png] adipiscing elit. Praesent porta purus ac ante dignissim, eu euismod lorem eleifend. Vivamus id venenatis diam. Suspendisse interdum tempus sapien, nec feugiat magna fermentum at. ',
     fontSize : '1em',
     padding : '0.2em',
     speed : 2,
@@ -62,7 +63,7 @@ $titleFiller.style.flexDirection = 'column';
 $titleFiller.style.alignItems = 'flex-start';
 $titleFiller.style.justifyContent = 'center';
 
-const $titleTabPortfolio = new TitleTab('Portfolio', './assets/icons/directory_open_images.png', buildPortfolio);
+const $titleTabPortfolio = new TitleTab('Gallery', './assets/icons/directory_open_images.png', buildPortfolio);
 $titleFiller.appendChild($titleTabPortfolio.container);
 
 const $titleTabAboutUs = new TitleTab('About_Us', './assets/icons/users.png', buildAboutUs);
@@ -94,14 +95,14 @@ function buildPortfolio(){
 
     $title.container.remove();
     $title = new TitleText({
-        text : 'Portfolio',
+        text : 'Gallery',
         fontSize : '7em',
         margin : '0.4em',
         color : $ui.colors.blue,
         secondColor : $ui.colors.white,
         borderSize : $ui.borderSize, 
         time : 100,
-        subtitle : 'POV YOU ARE AN A.I.',
+        subtitle : 'POV, YOU ARE AN AI',
     });
 
     $titleHolder.appendChild($title.container);
@@ -136,38 +137,6 @@ function buildPortfolio(){
         columns : amountOfColumns,
         gap : '20px',
         images : $images,
-        /*
-        images : [
-            './assets/test.jpg',
-            './assets/test3.jpg',
-            './assets/test2.jpg',
-            './assets/test3.jpg',
-            './assets/test2.jpg',
-            './assets/test.jpg',
-            './assets/test3.jpg',
-            './assets/test.jpg',
-            './assets/test3.jpg',
-            './assets/test.jpg',
-            './assets/test2.jpg',
-            './assets/test2.jpg',
-            './assets/test.jpg',
-            './assets/test2.jpg',
-            './assets/test3.jpg',
-            './assets/test3.jpg',
-            './assets/test.jpg',
-            './assets/test2.jpg',
-            './assets/test2.jpg',
-            './assets/test.jpg',
-            './assets/test.jpg',
-            './assets/test3.jpg',
-            './assets/test.jpg',
-            './assets/test.jpg',
-            './assets/test3.jpg',
-            './assets/test3.jpg',
-            './assets/test2.jpg',
-            './assets/test2.jpg',
-            './assets/test3.jpg',
-        ]*/
     });
 
     $galleryHolder.appendChild($gallery.container);
@@ -177,22 +146,6 @@ function buildPortfolio(){
     $gallery.container.style.height = '100%';
     $gallery.container.style.border = 'solid ' + $ui.borderSize + ' ' + $ui.colors.blue;
     $gallery.container.style.borderRadius = $ui.borderRadius;
-
-/*
-    const testIcon = new FlyingIcon({
-        speed : 0.01,
-        radius : 400,
-        icon : $iconMap[Math.floor(Math.random()*$iconMap.length)],
-    });
-    document.body.appendChild(testIcon.container);
-
-    testIcon2 = new FlyingIcon({
-        speed : 0.02,
-        radius : 350,
-        icon : $iconMap[Math.floor(Math.random()*$iconMap.length)],
-    });
-    document.body.appendChild(testIcon2.container);
-    */
 };
 
 buildPortfolio();
@@ -217,7 +170,7 @@ function buildAboutUs(){
         secondColor : $ui.colors.white,
         borderSize : $ui.borderSize, 
         time : 100,
-        subtitle : 'POV YOU ARE AN A.I.',
+        subtitle : 'POV, YOU ARE AN AI',
     });
 
     $titleHolder.appendChild($title.container);
@@ -258,7 +211,7 @@ function buildContact(){
         secondColor : $ui.colors.white,
         borderSize : $ui.borderSize, 
         time : 100,
-        subtitle : 'POV YOU ARE AN A.I.',
+        subtitle : 'POV, YOU ARE AN AI',
     });
 
     $titleHolder.appendChild($title.container);

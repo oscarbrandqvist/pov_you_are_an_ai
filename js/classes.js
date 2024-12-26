@@ -145,6 +145,7 @@ class Image{
 
         this.isHidden = images.hidden;
         this.puzzleType = images.puzzle;
+        this.hasWatermark = images.watermarked;
 
         this.container.style.transform = 'translateY(200px)';
 
@@ -152,6 +153,7 @@ class Image{
         this.container.appendChild(this.imageHolder);
 
         this.imageHolder.style.borderRadius = $ui.borderRadius;
+        this.imageHolder.style.position = 'relative';
         this.imageHolder.style.border = 'solid ' + $ui.borderSize + ' ' + $ui.colors.blue;
         this.imageHolder.style.overflow = 'hidden';
         this.imageHolder.style.cursor = 'pointer';
@@ -164,6 +166,22 @@ class Image{
         this.image.style.maxWidth = '100%';
         this.image.style.display = 'block';
         this.image.style.objectFit = 'contain';
+        this.image.style.pointerEvents = 'none';
+
+        this.watermark = document.createElement('div');
+        this.imageHolder.appendChild(this.watermark);
+
+        this.watermark.style.position = 'absolute';
+        this.watermark.style.pointerEvents = 'none';
+        this.watermark.style.top = '0';
+        this.watermark.style.right = '0';
+        this.watermark.style.left = '0';
+        this.watermark.style.bottom = '0';
+        this.watermark.style.backgroundImage = 'url(./assets/watermark.png)';
+        this.watermark.style.backgroundRepeat = 'no-repeat';
+        this.watermark.style.backgroundSize = 'auto 40%';
+        this.watermark.style.backgroundPosition = 'center';
+        this.watermark.style.opacity = '0';
 
         this.cover = document.createElement('div');
         this.imageHolder.appendChild(this.cover);
@@ -186,11 +204,14 @@ class Image{
             thisImage.container.style.transform = 'translateY(0)';
         }, 10); 
 
-
         if(this.isHidden){
+            this.watermark.style.opacity = '0';
             this.image.style.opacity = '0';
             this.cover.style.opacity = '1';
         }else{
+            if(this.hasWatermark){
+                this.watermark.style.opacity = '0.7';
+            };
             this.image.style.opacity = '1';
             this.cover.style.opacity = '0';
         };
@@ -459,6 +480,20 @@ class Puzzle{
             thisPuzzle.captcha.container.style.padding = thisPuzzle.captcha.container.style.paddingBottom = '0.5em';
         };
 
+        if(options.puzzleType == 'watermark'){
+
+            thisPuzzle.captcha = new WatermarkDialog({
+                width : '350px',
+                event : function(){
+                    $images[thisPuzzle.thisImage.index].watermarked = true;
+                    thisPuzzle.thisImage.hasWatermark = true;
+                    thisPuzzle.thisImage.watermark.style.opacity = '0.7';
+                    thisPuzzle.captcha.container.remove();
+                    correctEvent();
+                },
+            });
+        };
+
         function chanceCoverIcon(time,counter){
             if(counter < 10){
                 setTimeout(function(){
@@ -482,15 +517,43 @@ class Puzzle{
 
     showImage(){
         const thisPuzzle = this;
+
+        this.imageHolder = document.createElement('div');
+        this.container.appendChild(this.imageHolder);
+        this.imageHolder.style.position = 'relative';
+        this.imageHolder.style.width = '100%';
+        this.imageHolder.style.height = '100%';
+        this.imageHolder.style.justifyContent = 'center';
+        this.imageHolder.style.alignItems = 'center';
+        this.imageHolder.style.display = 'flex';
+
         this.image = document.createElement('img');
-        this.container.appendChild(this.image);
+        this.imageHolder.appendChild(this.image);
 
         this.image.src = this.thisImage.image.src;
         this.image.style.maxWidth = '100%';
         this.image.style.maxHeight = '100%';
-        this.image.style.display = 'block';
         this.image.style.objectFit = 'contain';
         this.image.style.zIndex = '1';
+        this.image.style.pointerEvents = 'none';
+        
+        if(this.thisImage.hasWatermark){
+            this.watermark = document.createElement('div');
+            this.imageHolder.appendChild(this.watermark);
+    
+            this.watermark.style.position = 'absolute';
+            this.watermark.style.pointerEvents = 'none';
+            this.watermark.style.top = '0';
+            this.watermark.style.right = '0';
+            this.watermark.style.left = '0';
+            this.watermark.style.bottom = '0';
+            this.watermark.style.backgroundImage = 'url(./assets/watermark.png)';
+            this.watermark.style.backgroundRepeat = 'no-repeat';
+            this.watermark.style.backgroundSize = 'auto 40%';
+            this.watermark.style.backgroundPosition = 'center';
+            this.watermark.style.opacity = '0.7';
+            this.watermark.style.zIndex = '2';
+        };
     };
 
     close(){
