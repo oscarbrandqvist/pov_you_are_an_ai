@@ -70,7 +70,7 @@ const $titleTabAboutUs = new TitleTab('About_Us', './assets/icons/users.png', bu
 $titleFiller.appendChild($titleTabAboutUs.container);
 
 const $titleTabContact = new TitleTab('Contact', './assets/icons/envelope_open.png', buildContact);
-$titleFiller.appendChild($titleTabContact.container);
+//$titleFiller.appendChild($titleTabContact.container);
 
 
 let $title = new TitleText({

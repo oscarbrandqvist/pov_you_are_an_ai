@@ -146,6 +146,7 @@ class Image{
         this.isHidden = images.hidden;
         this.puzzleType = images.puzzle;
         this.hasWatermark = images.watermarked;
+        this.isGlazed = images.glazed;
 
         this.container.style.transform = 'translateY(200px)';
 
@@ -161,7 +162,12 @@ class Image{
 
         this.image = document.createElement('img');
         this.imageHolder.appendChild(this.image);
-        this.image.src = images.url;
+        
+        if(this.isGlazed){
+            this.image.src = images.glaze;
+        }else{
+            this.image.src = images.url;
+        };
 
         this.image.style.maxWidth = '100%';
         this.image.style.display = 'block';
@@ -449,6 +455,8 @@ class Puzzle{
             $images[thisPuzzle.thisImage.index].hidden = false;
         };
 
+        //captcha
+
         if(options.puzzleType == 'randomImageCaptcha'){
             thisPuzzle.captcha = new ImageCaptcha({
                 type : 'random',
@@ -480,14 +488,35 @@ class Puzzle{
             thisPuzzle.captcha.container.style.padding = thisPuzzle.captcha.container.style.paddingBottom = '0.5em';
         };
 
+        // watermark
+
         if(options.puzzleType == 'watermark'){
 
             thisPuzzle.captcha = new WatermarkDialog({
+                text : 'Please add a watermark to view this image:',
+                submitText : 'Add Watermark',
                 width : '350px',
                 event : function(){
                     $images[thisPuzzle.thisImage.index].watermarked = true;
                     thisPuzzle.thisImage.hasWatermark = true;
                     thisPuzzle.thisImage.watermark.style.opacity = '0.7';
+                    thisPuzzle.captcha.container.remove();
+                    correctEvent();
+                },
+            });
+        };
+
+        if(options.puzzleType == 'glaze'){
+
+            thisPuzzle.captcha = new WatermarkDialog({
+                text : 'To view this image, please add "GLAZE" to the art:',
+                submitText : 'Add GLAZE',
+                width : '350px',
+                event : function(){
+                    $images[thisPuzzle.thisImage.index].glazed = true;
+                    thisPuzzle.thisImage.isGlazed = true;
+                    thisPuzzle.thisImage.image.src = $images[thisPuzzle.thisImage.index].glaze;
+                    //thisPuzzle.thisImage.watermark.style.opacity = '0.7';
                     thisPuzzle.captcha.container.remove();
                     correctEvent();
                 },

@@ -183,9 +183,13 @@ class WatermarkDialog{
         this.container.style.paddingLeft = this.container.style.paddingRight = '2em';
         this.container.style.paddingTop = this.container.style.paddingBottom = '1em';
 
-        this.container.innerHTML = 'Please add a watermark to view this image:';
+        this.container.innerHTML = options.text;
+        //'Please add a watermark to view this image:';
+
+        const submitText = options.submitText;
         this.button = new Button({
-            text : 'Add Watermark',
+            text : submitText,
+            //'Add Watermark'
             clickEvent : function(){
                 thisDialog.event();
             },
