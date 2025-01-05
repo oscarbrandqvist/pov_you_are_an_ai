@@ -155,5 +155,3 @@ for(let i = 0; i < $images.length; i++){
         $images[i].puzzle = 'glaze';
     };
 };
-
-console.log($images)
