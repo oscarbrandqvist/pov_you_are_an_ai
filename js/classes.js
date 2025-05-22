@@ -174,6 +174,7 @@ class Image{
         this.image.style.objectFit = 'contain';
         this.image.style.pointerEvents = 'none';
 
+        //code
         this.code = document.createElement('div');
         this.imageHolder.appendChild(this.code);
         this.code.style.position = 'absolute';
@@ -189,6 +190,22 @@ class Image{
         this.code.style.fontWeight = 'bold';
 
         this.code.innerHTML = images.code;
+
+
+        //click here
+
+        this.clickHere = document.createElement('div');
+        this.imageHolder.appendChild(this.clickHere);
+        this.clickHere.style.position = 'absolute';
+        this.clickHere.style.pointerEvents = 'none';
+        this.clickHere.style.top = 'calc(50% + 1em)';
+        this.clickHere.style.right = '0';
+        this.clickHere.style.left = '0';
+        this.clickHere.style.bottom = '0';
+        this.clickHere.style.fontSize = '1em';
+        this.clickHere.style.textAlign = 'center';
+
+        this.clickHere.innerHTML = 'tryck';
 
 
         this.watermark = document.createElement('div');
@@ -242,32 +259,32 @@ class Image{
 
         this.imageHolder.addEventListener('mouseenter', function(){
             thisImage.imageHolder.style.background = $ui.colors.blue;
-            thisImage.code.style.color = $ui.colors.white;
+            thisImage.code.style.color = thisImage.clickHere.style.color = $ui.colors.white;
         });
         this.imageHolder.addEventListener('mouseup', function(){
             thisImage.imageHolder.style.background = $ui.colors.blue;
-            thisImage.code.style.color = $ui.colors.white;
+            thisImage.code.style.color = thisImage.clickHere.style.color = $ui.colors.white;
         });
         this.imageHolder.addEventListener('touchstart', function(){
             thisImage.imageHolder.style.background = $ui.colors.blue;
-            thisImage.code.style.color = $ui.colors.white;
+            thisImage.code.style.color = thisImage.clickHere.style.color = $ui.colors.white;
         });
         //
         this.imageHolder.addEventListener('mouseleave', function(){
             thisImage.imageHolder.style.background = $ui.colors.white;
-            thisImage.code.style.color = $ui.colors.blue;
+            thisImage.code.style.color = thisImage.clickHere.style.color = $ui.colors.blue;
         });
         this.imageHolder.addEventListener('mousedown', function(){
             thisImage.imageHolder.style.background = $ui.colors.white;
-            thisImage.code.style.color = $ui.colors.blue;
+            thisImage.code.style.color = thisImage.clickHere.style.color = $ui.colors.blue;
         });
         this.imageHolder.addEventListener('touchend', function(){
             thisImage.imageHolder.style.background = $ui.colors.white;
-            thisImage.code.style.color = $ui.colors.blue;
+            thisImage.code.style.color = thisImage.clickHere.style.color = $ui.colors.blue;
         });
         this.imageHolder.addEventListener('click', function(){
             thisImage.imageHolder.style.background = $ui.colors.white;
-            thisImage.code.style.color = $ui.colors.blue;
+            thisImage.code.style.color = thisImage.clickHere.style.color = $ui.colors.blue;
             if(thisImage.image.style.opacity == '1'){
                 thisImage.gallery.startPuzzle(thisImage, 'imageViewer');
             }else{
