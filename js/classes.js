@@ -249,12 +249,16 @@ class Image{
             this.watermark.style.opacity = '0';
             this.image.style.opacity = '0';
             this.cover.style.opacity = '1';
+            this.code.style.opacity = '1';
+            this.clickHere.style.opacity = '1';
         }else{
             if(this.hasWatermark){
                 this.watermark.style.opacity = '0.7';
             };
             this.image.style.opacity = '1';
             this.cover.style.opacity = '0';
+            this.code.style.opacity = '0';
+            this.clickHere.style.opacity = '0';
         };
 
 
