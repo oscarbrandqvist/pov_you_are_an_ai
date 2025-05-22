@@ -55,8 +55,8 @@ class ImageCaptcha{
         if(options.type == 'random'){
 
             this.correctBatch = options.batches[Math.floor(Math.random() * options.batches.length)];
-
-            this.instructions.innerHTML = 'Select all images of <br><span style="font-size : 2em; font-weight : 600">' + this.correctBatch.name + '</span>';
+            this.instructions.style.fontSize = '24px';
+            this.instructions.innerHTML = 'Välj alla bilder med  <br><span style="font-size : 4em; font-weight : 600">' + this.correctBatch.name + '</span>';
 
             replaceIcons(this.instructions);
 
@@ -75,7 +75,7 @@ class ImageCaptcha{
 
         // button
         this.button = new Button({
-            text : 'Submit',
+            text : 'Bekräfta',
             clickEvent : function(){
                 if(thisCaptcha.checkIfCorrect()){
                     thisCaptcha.correctEvent();
@@ -87,6 +87,7 @@ class ImageCaptcha{
         this.container.appendChild(this.button.container);
         this.button.container.style.margin = '10px';
         this.button.container.style.marginLeft = 'auto';
+        this.button.container.style.fontSize = '3em';
 
 
 

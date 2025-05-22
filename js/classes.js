@@ -174,6 +174,23 @@ class Image{
         this.image.style.objectFit = 'contain';
         this.image.style.pointerEvents = 'none';
 
+        this.code = document.createElement('div');
+        this.imageHolder.appendChild(this.code);
+        this.code.style.position = 'absolute';
+        this.code.style.pointerEvents = 'none';
+        this.code.style.top = '0';
+        this.code.style.right = '0';
+        this.code.style.left = '0';
+        this.code.style.bottom = '0';
+        this.code.style.fontSize = '1.6em';
+        this.code.style.textAlignLast = 'justify';
+        this.code.style.padding = '10px';
+        this.code.style.textTransform = 'uppercase';
+        this.code.style.fontWeight = 'bold';
+
+        this.code.innerHTML = images.code;
+
+
         this.watermark = document.createElement('div');
         this.imageHolder.appendChild(this.watermark);
 
@@ -225,25 +242,32 @@ class Image{
 
         this.imageHolder.addEventListener('mouseenter', function(){
             thisImage.imageHolder.style.background = $ui.colors.blue;
+            thisImage.code.style.color = $ui.colors.white;
         });
         this.imageHolder.addEventListener('mouseup', function(){
             thisImage.imageHolder.style.background = $ui.colors.blue;
+            thisImage.code.style.color = $ui.colors.white;
         });
         this.imageHolder.addEventListener('touchstart', function(){
             thisImage.imageHolder.style.background = $ui.colors.blue;
+            thisImage.code.style.color = $ui.colors.white;
         });
         //
         this.imageHolder.addEventListener('mouseleave', function(){
             thisImage.imageHolder.style.background = $ui.colors.white;
+            thisImage.code.style.color = $ui.colors.blue;
         });
         this.imageHolder.addEventListener('mousedown', function(){
             thisImage.imageHolder.style.background = $ui.colors.white;
+            thisImage.code.style.color = $ui.colors.blue;
         });
         this.imageHolder.addEventListener('touchend', function(){
             thisImage.imageHolder.style.background = $ui.colors.white;
+            thisImage.code.style.color = $ui.colors.blue;
         });
         this.imageHolder.addEventListener('click', function(){
             thisImage.imageHolder.style.background = $ui.colors.white;
+            thisImage.code.style.color = $ui.colors.blue;
             if(thisImage.image.style.opacity == '1'){
                 thisImage.gallery.startPuzzle(thisImage, 'imageViewer');
             }else{
@@ -418,7 +442,7 @@ class Puzzle{
         };
 
         thisPuzzle.exitButton = new Button({
-            text : '',
+            text : 'X',
             clickEvent : function(){
                 thisPuzzle.close();
             },
@@ -428,6 +452,9 @@ class Puzzle{
         thisPuzzle.exitButton.container.style.right = '10px';
         thisPuzzle.exitButton.container.style.padding = '0';
         thisPuzzle.exitButton.container.style.zIndex = '2';
+        thisPuzzle.exitButton.container.style.fontWeight = 'bold';
+        thisPuzzle.exitButton.container.style.textAlign = 'center';
+        thisPuzzle.exitButton.container.style.lineHeight = '2.5em';
         thisPuzzle.exitButton.container.style.height = thisPuzzle.exitButton.container.style.width = '50px';
 
         thisPuzzle.container.appendChild(thisPuzzle.exitButton.container);
@@ -460,7 +487,9 @@ class Puzzle{
         if(options.puzzleType == 'randomImageCaptcha'){
             thisPuzzle.captcha = new ImageCaptcha({
                 type : 'random',
-                width : '350px',
+                //
+                //width : '350px',
+                width : '550px',
                 heightMult : 1.2,
                 tilePadding : '4px',
                 tileBorderRadius : '0vmin',

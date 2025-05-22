@@ -33,7 +33,8 @@ const $textScrollerHolder = document.createElement('div');
 $content.appendChild($textScrollerHolder);
 
 const $textScroller = new TextScroller({
-    text : "In an age dominated by digital landscapes, the boundary between art and technology grows increasingly blurred. Modern creators face unprecedented challenges, as artificial intelligence harvests vast amounts of data to mimic and reproduce artistic styles without consent. The very act of protecting one’s work has become an intricate maze of barriers—watermarks, Captchas, and tools designed to safeguard creativity from unauthorised replication. - ",
+    //text : "In an age dominated by digital landscapes, the boundary between art and technology grows increasingly blurred. Modern creators face unprecedented challenges, as artificial intelligence harvests vast amounts of data to mimic and reproduce artistic styles without consent. The very act of protecting one’s work has become an intricate maze of barriers—watermarks, Captchas, and tools designed to safeguard creativity from unauthorised replication. - ",
+    text : "Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? Är du en AI? ",
     //text : 'Lorem ipsum dolor sit amet, consectetur [icon:./assets/icons/directory_explorer.png] adipiscing elit. Praesent porta purus ac ante dignissim, eu euismod lorem eleifend. Vivamus id venenatis diam. Suspendisse interdum tempus sapien, nec feugiat magna fermentum at. ',
     fontSize : '1em',
     padding : '0.2em',
@@ -63,13 +64,13 @@ $titleFiller.style.flexDirection = 'column';
 $titleFiller.style.alignItems = 'flex-start';
 $titleFiller.style.justifyContent = 'center';
 
-const $titleTabPortfolio = new TitleTab('Gallery', './assets/icons/directory_open_images.png', buildPortfolio);
+const $titleTabPortfolio = new TitleTab('Galleri', './assets/icons/directory_open_images.png', buildPortfolio);
 $titleFiller.appendChild($titleTabPortfolio.container);
 
-const $titleTabAboutUs = new TitleTab('About_Us', './assets/icons/users.png', buildAboutUs);
+const $titleTabAboutUs = new TitleTab('Om_oss', './assets/icons/users.png', buildAboutUs);
 $titleFiller.appendChild($titleTabAboutUs.container);
 
-const $titleTabContact = new TitleTab('Contact', './assets/icons/envelope_open.png', buildContact);
+const $titleTabContact = new TitleTab('Kontact', './assets/icons/envelope_open.png', buildContact);
 //$titleFiller.appendChild($titleTabContact.container);
 
 
@@ -95,14 +96,14 @@ function buildPortfolio(){
 
     $title.container.remove();
     $title = new TitleText({
-        text : 'Gallery',
+        text : 'Galleri',
         fontSize : '7em',
         margin : '0.4em',
         color : $ui.colors.blue,
         secondColor : $ui.colors.white,
         borderSize : $ui.borderSize, 
         time : 100,
-        subtitle : 'POV, YOU ARE AN AI',
+        subtitle : 'POV, DU ÄR EN AI',
     });
 
     $titleHolder.appendChild($title.container);
@@ -163,14 +164,14 @@ function buildAboutUs(){
     $title.container.remove();
     $title = new TitleText({
         //text : 'CAPTCHA',
-        text : 'About_Us',
+        text : 'Om_oss',
         fontSize : '7em',
         margin : '0.4em',
         color : $ui.colors.blue,
         secondColor : $ui.colors.white,
         borderSize : $ui.borderSize, 
         time : 100,
-        subtitle : 'POV, YOU ARE AN AI',
+        subtitle : 'POV, DU ÄR EN AI',
     });
 
     $titleHolder.appendChild($title.container);
@@ -188,8 +189,8 @@ function buildAboutUs(){
     $galleryHolder = document.createElement('div');
     $content.appendChild($galleryHolder);
 
-    $galleryHolder.innerHTML = 'The modern artist today faces several new and complex challenges in effectively protecting their art from theft and copying. One of the most relevant and current challenges is artificial intelligence. Artificial intelligence (AI) uses databases filled with information as the foundation for the responses and outputs it generates based on our prompts. Art from artists whose works are available online, often due to practices like web scraping, is used by AI as a basis for generating art and mimicking artistic styles. This happens regardless of the artist’s consent to have their works copied and used in the creation of new ones. We therefore want to take a closer look at the various security measures an artist must employ to protect their works from theft and copying.<br><br> Our project focuses on symbolising the extent of these measures through a website filled with obstacles in different forms, aiming to illustrate what an artist might be forced to do to prevent artificial intelligence from accessing a piece of art online.'
-    
+    //$galleryHolder.innerHTML = 'The modern artist today faces several new and complex challenges in effectively protecting their art from theft and copying. One of the most relevant and current challenges is artificial intelligence. Artificial intelligence (AI) uses databases filled with information as the foundation for the responses and outputs it generates based on our prompts. Art from artists whose works are available online, often due to practices like web scraping, is used by AI as a basis for generating art and mimicking artistic styles. This happens regardless of the artist’s consent to have their works copied and used in the creation of new ones. We therefore want to take a closer look at the various security measures an artist must employ to protect their works from theft and copying.<br><br> Our project focuses on symbolising the extent of these measures through a website filled with obstacles in different forms, aiming to illustrate what an artist might be forced to do to prevent artificial intelligence from accessing a piece of art online.'
+    $galleryHolder.innerHTML = 'Det moderna konstlandskapet står inför nya utmaningar, där AI spelar en central roll i att hota konstnärers rättigheter och ägandeskap över sina verk. Detta projekt undersöker tekniska och dels juridiska aspekter av AI:s användning av stora databaser, ofta byggda på otillåten åtkomst av konstverk via digitala tekniker som te.x. web-scraping. Vi har genom en interaktiv webbplats illustrerat mängden åtgärder som en konstnär kan behöva vidta för att skydda sin konst. Hemsidan fungerar både som ett konstverk i sig och en visuell plattform, där hinder såsom Captchas och Glaze symboliserar nödvändiga skyddsåtgärder mot AI:s intrång.<br><br> Syftet med projektet är att problematisera det ökade beroendet av digital teknologi och stimulera en diskussion om hur konstnärer kan navigera i detta nya, komplexa landskap. Vi föreslår att lösningen inte enbart ligger i tekniska skydd, utan i att skapa ett medvetet och etiskt ramverk som förenar teknikens möjligheter med respekt för mänskligt skapande.'
     $galleryHolder.style.textIndent = '60%';
     $galleryHolder.style.fontSize = '1.3em';
 };
@@ -204,14 +205,14 @@ function buildContact(){
     
     $title.container.remove();
     $title = new TitleText({
-        text : 'Contact',
+        text : 'Kontact',
         fontSize : '7em',
         margin : '0.4em',
         color : $ui.colors.blue,
         secondColor : $ui.colors.white,
         borderSize : $ui.borderSize, 
         time : 100,
-        subtitle : 'POV, YOU ARE AN AI',
+        subtitle : 'POV, DU ÄR EN AI',
     });
 
     $titleHolder.appendChild($title.container);
