@@ -324,6 +324,6 @@ $images[i].puzzle = 'randomImageCaptcha';
 };
 
 
-$images[0].puzzle = 'watermark';
-$images[1].puzzle = 'randomImageCaptcha';
-$images[2].puzzle = 'glaze';
+//$images[0].puzzle = 'watermark';
+//$images[1].puzzle = 'randomImageCaptcha';
+//$images[2].puzzle = 'glaze';

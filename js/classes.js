@@ -205,6 +205,7 @@ class Image{
         this.clickHere.style.fontSize = '1em';
         this.clickHere.style.textAlign = 'center';
 
+
         this.clickHere.innerHTML = 'tryck';
 
 
@@ -296,6 +297,8 @@ class Image{
     show(){
         this.image.style.opacity = '1';
         this.cover.style.opacity = '0';
+        this.code.style.opacity = '0';
+        this.clickHere.style.opacity = '0';
     };
 };
 
@@ -496,6 +499,9 @@ class Puzzle{
             thisPuzzle.showImage();
             thisPuzzle.thisImage.image.style.opacity = '1';
             thisPuzzle.thisImage.cover.style.opacity = '0';
+            thisPuzzle.thisImage.code.style.opacity = '0';
+            thisPuzzle.thisImage.clickHere.style.opacity = '0';
+
             $images[thisPuzzle.thisImage.index].hidden = false;
         };
 
