@@ -113,7 +113,7 @@ class CaptchaTile{
 
         this.batch = batch;
         this.url = url;
-
+        
         this.captcha = captcha;
 
         this.tile.style.background = 'url(' + url + '), ' + this.captcha.overlayColor;

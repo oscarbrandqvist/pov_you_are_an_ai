@@ -1,3 +1,34 @@
+//preload images
+
+for(let i = 0; i < $imageCaptchaBatches.cat.size; i++){
+    let previewImage = document.createElement('div');
+    document.body.appendChild(previewImage);
+    previewImage.style.background = 'url(./assets/random_captcha_images/cat/' + i + '.jpg)';
+    previewImage.style.height = '20px';
+    previewImage.style.width = '20px';
+    previewImage.style.top = '-200px';
+    previewImage.style.position = 'absolute';
+}
+
+for(let i = 0; i < $imageCaptchaBatches.dog.size; i++){
+    let previewImage = document.createElement('div');
+    document.body.appendChild(previewImage);
+    previewImage.style.background = 'url(./assets/random_captcha_images/dog/' + i + '.jpg)';
+    previewImage.style.height = '20px';
+    previewImage.style.width = '20px';
+    previewImage.style.top = '-200px';
+    previewImage.style.position = 'absolute';
+}
+
+for(let i = 0; i < $imageCaptchaBatches.rabbit.size; i++){
+    let previewImage = document.createElement('div');
+    document.body.appendChild(previewImage);
+    previewImage.style.background = 'url(./assets/random_captcha_images/rabbit/' + i + '.jpg)';
+    previewImage.style.height = '20px';
+    previewImage.style.width = '20px';
+    previewImage.style.top = '-200px';
+    previewImage.style.position = 'absolute';
+}
 
 // BASE ELEMENTS //
 document.body.style.backgroundColor = $ui.colors.white;
